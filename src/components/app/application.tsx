@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { Map, View } from "ol";
 import TileLayer from "ol/layer/Tile.js";
-import { OSM } from "ol/source.js";
 import { useGeographic } from "ol/proj.js";
 import { WMTS } from "ol/source.js";
 import { optionsFromCapabilities } from "ol/source/WMTS.js";
@@ -11,7 +10,6 @@ import "ol/ol.css";
 
 useGeographic();
 
-// Kartverket bakgrunnskart
 const parser = new WMTSCapabilities();
 const kartverketLayer = new TileLayer();
 
@@ -31,7 +29,7 @@ const map = new Map({
     center: [10.75, 59.91],
     zoom: 10,
   }),
-  layers: [kartverketLayer], // Bytt fra OSM til Kartverket
+  layers: [kartverketLayer],
 });
 
 export function Application() {
